@@ -10,7 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
     "prepare": "yarn build",
-    "build": "yarn clean && cross-env NODE_ENV=production webpack"
+    "build": "yarn clean && cross-env NODE_ENV=production webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook" : "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,10 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^6.0.22",
+    "@storybook/addon-essentials": "^6.0.22",
+    "@storybook/addon-links": "^6.0.22",
+    "@storybook/react": "^6.0.22",
     "@svgr/webpack": "^5.4.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-css-modules": "^5.2.6",
