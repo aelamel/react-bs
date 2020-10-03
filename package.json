@@ -51,5 +51,8 @@
   "bugs": {
     "url": "https://github.com/aelamel/react-bs/issues"
   },
-  "homepage": "https://github.com/aelamel/react-bs#readme"
+  "homepage": "https://github.com/aelamel/react-bs#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  }
 }
