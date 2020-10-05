@@ -1,28 +1,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const ButtonStyle = {
-  backgroundColor : '#46a049',
-  color: '#fff',
-  padding: '5px 25px',
-  borderRadius: '2px',
-  fontSize:'16px',
-  border: '1px solid',
-  cursor:'pointer',
-}
 
-const Button = ({text, onClick}) => {
+/**
+ *
+ * @type {{options: {isLink: boolean, style: string, isDisabled: boolean, isActive: boolean}, text: string}}
+ */
+const defaultProps = {
+    options : {
+        style : 'primary',
+        isActive : false,
+        isDisabled : false,
+        isLink : false
+    },
+    text: 'Button'
+};
+/**
+ *  Bs  custom Button
+ * @param text
+ * @param onClick
+ * @param options
+ * @returns {*}
+ * @constructor
+ */
+const Button = ({text, onClick , options}) => {
+
+    options = {...Button.defaultProps.options, ...options };
+    const className = classNames(
+        {
+            ' link': options.isLink === true,
+            ' disabled': options.isDisabled === true,
+            ' active': options.isActive === true,
+        }
+    );
 
     return (
-      <button type="button" style={ButtonStyle} onClick={onClick}>
-        {text}
-      </button>
+        <button
+            className={'btn btn-'+options.style + className}
+            type="button"
+            onClick={onClick}
+        >
+            {text}
+        </button>
     );
 };
-
+/**
+ *
+ * @type {{onClick: *, options: *, text: *}}
+ */
 Button.propTypes = {
     text: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    options: PropTypes.object
 };
+
+
+Button.defaultProps = defaultProps;
 
 export default Button;
