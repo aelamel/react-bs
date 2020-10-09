@@ -7,11 +7,10 @@ export default {
 };
 
 const Template = (args) => <Button {...args}/>;
-
 export const Primary = Template.bind({});
 Primary.args = {
   text: "Hello",
-  onClick: ()=>{console.log("hello button clicked");
+  onClick: ()=>{console.log("hello button clicked lol");
   },
 };
 
