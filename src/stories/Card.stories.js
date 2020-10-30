@@ -9,5 +9,17 @@ export default {
 const Template = (args) => <Card {...args}/>;
 
 export const Simple = Template.bind({});
-Simple.args = {};
+Simple.args = {
 
+};
+
+
+export const subTitle = Template.bind({});
+subTitle.args = {
+  subTitle: 'This is a subtitle'
+};
+
+export const listGroup = Template.bind({});
+listGroup.args = {
+  lists: ['Cras justo odio', 'Cras justo odio', 'Vestibulum at eros'],
+};
