@@ -9,27 +9,29 @@ const defaultProps = {
     buttonLabel: 'Go somewhere',
     content: ' Some quick example text to build on the card title and make up the bulk of the cards content. ',
     title : 'Card title',
-    subTitle:'Card subtitle',
     options : {
         style : ' ',
     }
 };
 
 
-const Card = ({ img, title, subTitle ,content , buttonLabel , onClick , options }) => {
+const Card = ({ img, title, subTitle ,lists, content , buttonLabel , onClick , options }) => {
 
 
     options = {...Card.defaultProps.options, ...options };
     img = (img) ? img : preview;
-
     return(
         <Fragment>
             <div className={"card " + options.style} >
                 <img className="card-img-top" src={img} alt={img}/>
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{subTitle}</h6>
+                        {subTitle &&<h6 className="card-subtitle mb-2 text-muted">{subTitle}</h6>}
                         <p className="card-text">{content}</p>
+                        <ul className="list-group list-group-flush">
+                            {lists &&  lists.map((element , index) => <li key={index} className="list-group-item">{element}</li>
+                            )}
+                        </ul>
                         <a href="#" className="btn btn-primary" onClick={onClick}>{buttonLabel}</a>
                     </div>
             </div>
@@ -42,6 +44,8 @@ const Card = ({ img, title, subTitle ,content , buttonLabel , onClick , options 
 Card.prototypes = {
     img : PropTypes.string,
     title: PropTypes.string,
+    subTitle: PropTypes.string.isOptional,
+    lists: PropTypes.array.isOptional,
     content: PropTypes.string,
     buttonLabel: PropTypes.string,
     onclick: PropTypes.func,
