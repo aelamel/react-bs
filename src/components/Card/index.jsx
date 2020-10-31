@@ -15,7 +15,7 @@ const defaultProps = {
 };
 
 
-const Card = ({ img, title, subTitle ,lists, content , buttonLabel , onClick , options }) => {
+const Card = ({ img, title, subTitle ,lists, headerContent , footerContent, content , buttonLabel , onClick , options }) => {
 
 
     options = {...Card.defaultProps.options, ...options };
@@ -23,6 +23,9 @@ const Card = ({ img, title, subTitle ,lists, content , buttonLabel , onClick , o
     return(
         <Fragment>
             <div className={"card " + options.style} >
+                { headerContent && <div className="card-header">
+                    {headerContent}
+                </div>}
                 <img className="card-img-top" src={img} alt={img}/>
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
@@ -34,6 +37,9 @@ const Card = ({ img, title, subTitle ,lists, content , buttonLabel , onClick , o
                         </ul>
                         <a href="#" className="btn btn-primary" onClick={onClick}>{buttonLabel}</a>
                     </div>
+                { footerContent && <div className="card-footer ">
+                    {footerContent}
+                </div>}
             </div>
         </Fragment>
     );
@@ -49,7 +55,9 @@ Card.prototypes = {
     content: PropTypes.string,
     buttonLabel: PropTypes.string,
     onclick: PropTypes.func,
-    options : PropTypes.object
+    options : PropTypes.object,
+    headerContent: PropTypes.string.isOptional,
+    footerContent: PropTypes.string.isOptional
     };
 
 Card.defaultProps = defaultProps;
