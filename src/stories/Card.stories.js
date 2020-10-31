@@ -23,3 +23,11 @@ export const listGroup = Template.bind({});
 listGroup.args = {
   lists: ['Cras justo odio', 'Cras justo odio', 'Vestibulum at eros'],
 };
+
+
+
+export const headerFooter = Template.bind({});
+headerFooter.args = {
+  headerContent : 'this is a header content',
+  footerContent : 'this is a footer content'
+};
